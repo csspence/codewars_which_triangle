@@ -7,6 +7,18 @@ For example:
 typeOfTriangle(2,2,1) --> "Isosceles"
 */
 
-var typeOfTriangle = function (sideA, sideB, sideC) {
-
+const typeOfTriangle = (sideA, sideB, sideC) => {
+  if(typeof sideA !== 'number' || typeof sideB !== 'number' || typeof sideC !== 'number') {
+    return 'Not a valid triangle';
+  }
+  if(sideA < 1 || sideB < 1 || sideC < 1) {
+    return 'Not a valid triangle';
+  }
+  if(sideA === sideB && sideB === sideC) {
+    return 'Equilateral';
+  } else if(sideA === sideB || sideB === sideC || sideC === sideA) {
+    return 'Isosceles';
+  } else if(sideA !== sideB && sideB !== sideC && sideC !== sideA) {
+    return 'Scalene';
+  } 
 }
